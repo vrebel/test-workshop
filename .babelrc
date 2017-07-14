@@ -1,0 +1,14 @@
+{
+    "env": {
+        "karma": {
+            "plugins": [
+                [
+                    "istanbul",
+                    {
+                        "exclude": ["tests/**/*.test.js", "src/js/vendor"]
+                    }
+                ]
+            ]
+        }
+    }
+}

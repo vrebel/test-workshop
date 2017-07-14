@@ -1,0 +1,38 @@
+@import '../../node_modules/normalize.css/normalize.css';
+@import 'variables';
+@import 'fonts';
+
+body{
+    font-family: 'Audiowide', cursive;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #052448 0%, #da27ce 80%, #ffc0fb 100%);
+    min-height: 100vh;
+    &:before{
+        background-image: url('../assets/images/smoke.png');
+        content: '';
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        opacity: .2;
+        background-repeat: repeat-x;
+        background-position-y: bottom;
+    }
+}
+
+.message{
+    color: white;
+    background-color: $bg-color;
+    filter:  drop-shadow(0 0 6px #ffc0fb) drop-shadow( 0 0 20px #da27ce );
+    border-radius: 2px;
+    padding: 1rem;
+    width:50%;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/24yVINP.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
