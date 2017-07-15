@@ -1,5 +1,5 @@
-import * as es6module from './modules/es6.js';
 import '../scss/main.scss';
+import calc from './modules/calc';
+import renderer from './modules/renderer';
 
-es6module.cube(3);
-es6module.square(2);
+// renderer.createPanel();
