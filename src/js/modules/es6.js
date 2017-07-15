@@ -17,6 +17,9 @@ function square(x){
 }
 
 function sqrt(x){
+    if ( x < 0 ){ 
+        throw new Error('sqrt não funciona para números negativos');
+    }
     return Math.exp( Math.log(x)/2 );
 }
 

@@ -2,6 +2,15 @@
 @import 'variables';
 @import 'fonts';
 
+@keyframes animatedBg{
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: 100%
+    }
+}
+
 body{
     font-family: 'Audiowide', cursive;
     font-size: 18px;
@@ -16,6 +25,7 @@ body{
         opacity: .2;
         background-repeat: repeat-x;
         background-position-y: bottom;
+        animation: animatedBg 100s linear infinite;
     }
 }
 
