@@ -13,5 +13,8 @@ function sqrt(x){
     return Math.exp(Math.log(x)/2);
 }
 
-export {sqrt, square, cube};
-export default {sqrt, square, cube};
+function randomInt(min, max){
+    return Math.round( Math.random()*(max-min) + min );
+}
+
+export {sqrt, square, cube, randomInt};

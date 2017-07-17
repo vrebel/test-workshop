@@ -1,16 +1,32 @@
-var panel;
+import $ from 'jquery';
+
 function createPanel(){
-    panel = document.createpanelent('div');
-    panel.innerText = 'Hello from es6!!!';
-    panel.className += 'message';
+    let panel;
+    panel = document.createElement('div');
+    panel.className += 'panel';
     document.body.prepend(panel);
 }
 
-function renderMessage(message){
-    return message;
+function renderInput(){
+    let answerInput = document.createElement('div');
+    answerInput.innerHTML = '<input type="number" autofocus>';
+    answerInput.className += 'answer-input';
+
+    let panel = document.getElementsByClassName('panel')[0];
+    panel.appendChild(answerInput);
 }
 
-export default {
+function renderQuestion(questionNumber, symbol){
+    let question;
+    question = document.createElement('div');
+    question.className += 'question-message';
+    question.innerHTML = `<span data-symbol='${symbol}'>${questionNumber}</span><span> = ?</span>`;
+
+    $('.panel').prepend(question);
+}
+
+export {
     createPanel,
-    renderMessage
+    renderQuestion,
+    renderInput
 };
