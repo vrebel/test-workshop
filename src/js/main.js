@@ -1,79 +1,56 @@
 import '../scss/main.scss';
-import * as calc from './modules/calc';
 import * as renderer from './modules/renderer';
 import $ from 'jquery';
+import gameLogic from './modules/gameLogic';
 
-const SYMBOLS = {
-    cube: '³',
-    square: '²',
-    sqrt: '√'
-};
-const FUNCTIONS = {
-    cube: calc.cube,
-    square: calc.square,
-    sqrt: calc.sqrt
-};
-var symbolKeys = Object.keys(SYMBOLS);
-let turns = 0;
-let correctAnswer;
-renderer.createPanel();
-renderer.renderInput();
-listenToInput();
-startTurn();
+setUp();
+
+function setUp(){
+    createBoard();
+    startTurn();
+}
 
 function startTurn(){
-    let questionNumber  = calc.randomInt(1,10);
-    let questionFn = symbolKeys[calc.randomInt(0,2)];
-    let questionSymbol = SYMBOLS[questionFn];
-    renderer.renderQuestion(questionNumber, questionSymbol);
-    setCorrectAnswer(questionFn, questionNumber);
+    let question = gameLogic.generateQuestion();
+    renderer.renderQuestion( question.symbol , question.number );
+    listenToInput();
 }
-function setCorrectAnswer(fn, number){
-    correctAnswer = FUNCTIONS[fn](number);
+
+function createBoard(){
+    renderer.createPanel();
+    renderer.renderInput();
 }
+
+function listenToInput(){
+    $('.answer-input input').on('keypress', checkUserInput);
+}
+
+function checkUserInput(e){
+    if( e.keyCode === 13 || e.which === 13 ){
+        let isCorrect = gameLogic.checkAnswer($(this).val().trim());
+        renderer.showResult(isCorrect);
+        let cleanUpTimeout = setTimeout(cleanUp, 2000);/*** */
+    }    
+}
+
+function cleanUp(){
+    $('.answer-input input').val('');
+    renderer.removeQuestion();
+    endTurn();
+}
+
 function endTurn(){
-    removeQuestion();
-    if(++turns < 10){
+    if( gameLogic.isGameOver() ){
+        endGame();
+    }else
+    {
         startTurn();
     }
 }
 
-function removeQuestion(){
-    $('.question-message').remove();
+function endGame(){
+    console.log('game over');
 }
 
-function listenToInput(){
-    $('.answer-input input').on('keypress', onEnterKey);
-}
 
-function showFeedback(isCorrect){
-    let message = document.createElement('div');
-    message.className += 'answer-feedback';
-    if(isCorrect){
-        
-        message.innerHTML = 'Resposta  correta!';
-        message.className += ' correct';
-       
-    }else{
-        message.innerHTML = 'Resposta  errada!';
-        message.className += ' wrong';
-    }
-    $('body').prepend(message);
-    setTimeout( cleanUp , 2000 );
-    endTurn();
-}
 
-function cleanUp(){
-    $('.answer-feedback').remove();
-    $('.answer-input input').val('');
-}
-function onEnterKey(e){
-    if( e.keyCode === 13 || e.which === 13 ){
-        let isCorrect = checkValue($(this).val().trim());
-        showFeedback(isCorrect);
-    }    
-}
-
-function checkValue(value){
-    return value == correctAnswer;
-}

@@ -21,7 +21,7 @@ module.exports = {
         compress: true,
         noInfo: true,
     },
-    devtool: 'inline-source-map',
+    devtool: 'cheap-eval-source-map',
     module:{
         rules:[
             {
