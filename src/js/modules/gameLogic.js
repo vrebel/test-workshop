@@ -44,16 +44,30 @@ function setCorrectAnswer(questionFunction, questionNumber) {
 }
 
 function checkAnswer(answer) {
+    let result = gameState.getAnswer() == answer;
+    gameState.addScore(result);
     gameState.incrementTurn();
-    return gameState.getAnswer() == answer;
+    return result;
+}
+
+function getTotalScore(){
+    let scores = gameState.getScore();
+    let correct = scores.filter( score => { return score; } );
+    return `${correct.length}/${scores.length}`;
 }
 
 function isGameOver(){
-    return gameState.getTurn() > MAX_TURNS;
+    return gameState.getTurn() >= MAX_TURNS;
+}
+
+function resetState(){
+    gameState.reset();
 }
 
 export default {
     generateQuestion,
     checkAnswer,
-    isGameOver
+    isGameOver,
+    getTotalScore,
+    resetState
 };

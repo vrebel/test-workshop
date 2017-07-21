@@ -105,7 +105,7 @@ body{
             content: attr(data-symbol);
             position: absolute;
             top: 50%;
-            left: 0;
+            left: -5px;
             transform: translate(-100%, -50%);
         }
     }
@@ -138,5 +138,37 @@ body{
     }
     &.wrong{
         background: red;
+    }
+}
+
+
+.score{
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: white;
+    color: #da27ce;
+    text-shadow: 0px 2px 2px rgba(#da27ce, 0.6);
+    width: 50%;
+    margin: 2rem auto;
+    filter:  drop-shadow(0 0 6px #ffc0fb) drop-shadow( 0 0 20px #da27ce );
+}
+
+.restart{
+    
+    width: 30%;
+    margin: 0 auto;
+
+    button{
+        background-color: #da27ce;
+        width: 100%;
+        color: white;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+        &:focus{
+            outline: none;
+            border: none;
+        }
     }
 }

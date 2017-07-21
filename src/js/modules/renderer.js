@@ -4,6 +4,9 @@ let resultMessage;
 let question;
 let answerInput;
 let panel;
+let score;
+let restartBtn;
+const wait = ms => new Promise( resolve => setTimeout(resolve, ms) );
 
 function createPanel() {
     panel = document.createElement('div');
@@ -43,15 +46,38 @@ function showResult(isCorrect) {
 
     $('body').prepend(resultMessage);
 
-    setTimeout(removeResult, 2000);/*** */
+    wait(1500).then( removeResult );
 }
 
 function removeResult() {
-    $('.answer-feedback').remove();
+    $(resultMessage).remove();
 }
 
 function removeQuestion() {
     $(question).remove();
+}
+
+function removeInput() {
+    $(answerInput).remove();
+}
+
+function showScore(totalScore){
+    score = document.createElement('div');
+    score.className += 'score';
+    score.innerText += totalScore;
+
+    restartBtn = document.createElement('div');
+    restartBtn.className += 'restart';
+    restartBtn.innerHTML = '<button>RECOMECAR</button>';
+
+    panel.appendChild(score);
+    panel.appendChild(restartBtn);
+}
+
+function removeAll(){
+    $(score).remove();
+    $(restartBtn).remove();
+    $(panel).remove();
 }
 
 export {
@@ -59,5 +85,8 @@ export {
     renderQuestion,
     renderInput,
     showResult,
-    removeQuestion
+    removeQuestion,
+    showScore,
+    removeInput,
+    removeAll
 };
