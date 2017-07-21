@@ -13,8 +13,6 @@ const SYMBOLS = {
     sqrt: '√'
 };
 
-let MAX_TURNS = 10;
-
 let symbolKeys = Object.keys(SYMBOLS); // [cube, square, sqrt]
 
 
@@ -57,7 +55,7 @@ function getTotalScore(){
 }
 
 function isGameOver(){
-    return gameState.getTurn() >= MAX_TURNS;
+    return gameState.getTurn() >= gameState.getMaxTurns();
 }
 
 function resetState(){

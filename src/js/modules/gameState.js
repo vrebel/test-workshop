@@ -1,6 +1,12 @@
 let correctAnswer;
 let turn = 0;
 let score = [];
+let MAX_TURNS = 10;
+
+
+function getMaxTurns(){
+    return MAX_TURNS;
+}
 
 function reset(){
     turn = 0;
@@ -38,5 +44,6 @@ export default {
     incrementTurn,
     addScore,
     getScore,
-    reset
+    reset,
+    getMaxTurns
 };

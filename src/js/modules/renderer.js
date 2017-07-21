@@ -80,7 +80,7 @@ function removeAll(){
     $(panel).remove();
 }
 
-export {
+export default{
     createPanel,
     renderQuestion,
     renderInput,

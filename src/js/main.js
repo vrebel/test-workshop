@@ -1,11 +1,11 @@
 import '../scss/main.scss';
-import * as renderer from './modules/renderer';
+import renderer from './modules/renderer';
 import $ from 'jquery';
 import gameLogic from './modules/gameLogic';
 
 const wait = ms => new Promise( resolve => setTimeout(resolve, ms) );
 
-setUp();
+// setUp();
 
 function setUp(){
     gameLogic.resetState();
