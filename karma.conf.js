@@ -39,7 +39,7 @@ module.exports = function(config) {
         reporters: ['mocha', 'coverage'],
 
         coverageReporter: {
-            dir: 'build',
+            dir: 'coverage',
             reporters: [
                 {
                     type: 'html'

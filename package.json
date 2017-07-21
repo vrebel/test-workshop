@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --env=dev",
     "build": "npm run clean && webpack -p --env=prod",
-    "test": "rimraf build && karma start",
+    "test": "rimraf coverage && karma start",
     "clean": "rimraf ./dist"
   },
   "keywords": [],
