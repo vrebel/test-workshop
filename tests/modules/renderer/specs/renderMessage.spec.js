@@ -1,4 +1,4 @@
-import {renderQuestion} from '../../../src/js/modules/renderer';
+import {renderQuestion} from '../../../../src/js/modules/renderer';
 import 'jasmine-jquery';
 import $ from 'jquery';
 

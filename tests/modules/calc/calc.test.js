@@ -1,8 +1,8 @@
 describe('calc', ()=>{
 
-    require('./cube.spec');
-    require('./sqrt.spec');
-    require('./square.spec');
-    require('./randomInt.spec');
+    require('./specs/cube.spec');
+    require('./specs/sqrt.spec');
+    require('./specs/square.spec');
+    require('./specs/randomInt.spec');
     
 });

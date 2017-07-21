@@ -1,4 +1,4 @@
-import {sqrt} from '../../../src/js/modules/calc';
+import {sqrt} from '../../../../src/js/modules/calc';
 
 describe('sqrt', () =>{
 

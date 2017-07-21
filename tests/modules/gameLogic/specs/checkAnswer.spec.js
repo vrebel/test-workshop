@@ -1,5 +1,5 @@
-import {checkAnswer} from '../../../src/js/modules/gameLogic';
-import gameState from '../../../src/js/modules/gameState';
+import {checkAnswer} from '../../../../src/js/modules/gameLogic';
+import gameState from '../../../../src/js/modules/gameState';
 
 describe('checkAnswer', () => {
 

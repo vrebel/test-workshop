@@ -1,4 +1,4 @@
-import {cube} from '../../../src/js/modules/calc';
+import {cube} from '../../../../src/js/modules/calc';
 
 describe('cube', () =>{
 

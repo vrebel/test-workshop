@@ -1,4 +1,4 @@
-import {square} from '../../../src/js/modules/calc';
+import {square} from '../../../../src/js/modules/calc';
 
 describe('square', () =>{
 

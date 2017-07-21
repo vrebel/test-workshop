@@ -1,4 +1,4 @@
-import {randomInt} from '../../../src/js/modules/calc';
+import {randomInt} from '../../../../src/js/modules/calc';
 
 describe('randomInt', () =>{
 
