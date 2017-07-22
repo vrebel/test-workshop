@@ -2,15 +2,20 @@ import renderer from '../../../../src/js/modules/renderer';
 import 'jasmine-jquery';
 import $ from 'jquery';
 
-describe('createPanel', () => {
+describe('removeAll', () => {
 
     beforeEach( () => {
-        setFixtures('<div class="panel"><div class="score"></div><div class="restart"></div></div>');
+        renderer.createPanel();
+        renderer.showScore();
     });
 
     it('should remove the score, the restart button and the panel from the DOM', ()=>{
 
-        //renderer.removeAll();
+        renderer.removeAll();
+
+        expect($('.restart')).not.toBeInDOM();
+
+        expect($('.score')).not.toBeInDOM();
 
         expect($('.panel')).not.toBeInDOM();
     });

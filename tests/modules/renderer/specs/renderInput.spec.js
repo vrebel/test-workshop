@@ -1,15 +1,15 @@
 import renderer from '../../../../src/js/modules/renderer';
-import 'jasmine-jquery';
+require('jasmine-jquery');
 import $ from 'jquery';
 
 describe('renderInput', () => {
 
     beforeEach( ()=> {
-        setFixtures('<div class="panel"></div>');
+        renderer.createPanel();
     });
 
     afterEach( ()=>{
-        renderer.removeInput();
+        $('.panel').remove();
     });
 
     it('should render properly', ()=>{

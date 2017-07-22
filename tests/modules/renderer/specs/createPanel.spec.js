@@ -4,6 +4,10 @@ import $ from 'jquery';
 
 describe('createPanel', () => {
 
+    afterAll( () => {
+        $('.panel').remove();
+    });
+
     it('should render properly', ()=>{
 
         renderer.createPanel();

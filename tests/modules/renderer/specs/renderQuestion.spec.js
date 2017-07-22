@@ -5,11 +5,12 @@ import $ from 'jquery';
 describe('renderQuestion', () => {
 
     beforeEach( ()=> {
-        setFixtures('<div class="panel"></div>');
+        setFixtures(sandbox( { class : 'panel'} ));
     });
 
     afterEach( ()=>{
         renderer.removeQuestion();
+        $('.panel').remove();
     });
 
     it('should render properly', () => {

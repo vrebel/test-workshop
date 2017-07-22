@@ -12,7 +12,7 @@ describe('isGameOver', ()=> {
         for (var i = 0; i < 10; i++) {
             gameState.incrementTurn();            
         }
-        let stub = spyOn(gameState, 'getMaxTurns').and.returnValue(10);
+        spyOn(gameState, 'getMaxTurns').and.returnValue(10);
         
         let isOver = gameLogic.isGameOver();
         
