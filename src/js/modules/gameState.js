@@ -25,9 +25,6 @@ function setAnswer(answer){
     correctAnswer = answer;
 }
 
-function incrementTurn(){
-    turn++;
-}
 
 function addScore(result){
     score.push(result);
@@ -41,7 +38,7 @@ export default {
     getTurn,
     getAnswer,
     setAnswer,
-    incrementTurn,
+    // incrementTurn,
     addScore,
     getScore,
     reset,

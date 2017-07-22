@@ -8,11 +8,7 @@ let score;
 let restartBtn;
 const wait = ms => new Promise( resolve => setTimeout(resolve, ms) );
 
-function createPanel() {
-    panel = document.createElement('div');
-    panel.className += 'panel';
-    document.body.prepend(panel);
-}
+
 
 function renderInput() {
     answerInput = document.createElement('div');
@@ -31,23 +27,6 @@ function renderQuestion(symbol, questionNumber) {
     $('.panel').prepend(question);
 }
 
-function showResult(isCorrect) {
-    resultMessage = document.createElement('div');
-    resultMessage.className += 'answer-feedback';
-    if (isCorrect) {
-
-        resultMessage.innerHTML = 'Resposta  correta!';
-        resultMessage.className += ' correct';
-
-    } else {
-        resultMessage.innerHTML = 'Resposta  errada!';
-        resultMessage.className += ' wrong';
-    }
-
-    $('body').prepend(resultMessage);
-
-    wait(1500).then( removeResult );
-}
 
 function removeResult() {
     $(resultMessage).remove();
@@ -81,10 +60,10 @@ function removeAll(){
 }
 
 export default{
-    createPanel,
+    // createPanel,
     renderQuestion,
     renderInput,
-    showResult,
+    // showResult,
     removeQuestion,
     showScore,
     removeInput,

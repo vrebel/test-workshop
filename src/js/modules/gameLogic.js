@@ -54,18 +54,11 @@ function getTotalScore(){
     return `${correct.length}/${scores.length}`;
 }
 
-function isGameOver(){
-    return gameState.getTurn() >= gameState.getMaxTurns();
-}
-
-function resetState(){
-    gameState.reset();
-}
 
 export default {
     generateQuestion,
     checkAnswer,
-    isGameOver,
+    // isGameOver,
     getTotalScore,
-    resetState
+    // resetState
 };
